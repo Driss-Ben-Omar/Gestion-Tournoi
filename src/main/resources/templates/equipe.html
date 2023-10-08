@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="template1.html">
+
+<head>
+	<meta charset="utf-8" />
+
+	<title>Liste Equipes</title>
+
+	<link rel="stylesheet" href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+	<div layout:fragment="content">
+		<div class="p-5">
+			<div class="card">
+				<div class="card-header">List Patients</div>
+				<div class="card-body">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Nom Equipe</th>
+								<th>Pays</th>
+							</tr>
+							<tr th:each="equipe:${equipes}">
+								<td th:text="${equipe.id}"></td>
+								<td th:text="${equipe.nomEquipe}"></td>
+								<td th:text="${equipe.pays}"></td>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

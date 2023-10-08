@@ -2,6 +2,9 @@ package com.tournoi.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,9 +31,11 @@ public class Equipe {
 	private String pays;
 	
 	@OneToMany(mappedBy = "equipe")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private List<Joueur> joueurs;
 	
 	@ManyToMany(mappedBy = "equipes")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private List<Match> matchs;
 
 }

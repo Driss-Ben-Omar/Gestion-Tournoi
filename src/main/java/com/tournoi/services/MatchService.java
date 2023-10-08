@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.tournoi.entities.Arbitre;
 import com.tournoi.entities.Match;
 import com.tournoi.repositories.MatchRepository;
 

@@ -1,9 +1,11 @@
 package com.tournoi.entities;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.boot.autoconfigure.web.WebProperties.Resources.Chain.Strategy;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,6 +33,7 @@ public class Arbitre {
 	private String nationalite;
 	
 	@OneToMany(mappedBy = "arbitre")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private List<Match> matchs;
 
 }
