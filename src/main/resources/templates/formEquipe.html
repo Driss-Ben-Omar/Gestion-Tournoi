@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css">
-	<title>Arbitre</title>
+	<title>Nouveau Equipe</title>
 </head>
 
 <body>
@@ -13,31 +13,32 @@
 		<div class="row mt-5">
 			<div class="col-md-6 offset-3">
 				<div class="card">
-					<div class="card-header">Edit Arbitre</div>
+					<div class="card-header">Nouveau Equipe</div>
 					<div class="card-body">
 						<div class="p-5">
-							<form th:action="@{/arbitre/save}" method="post">
-								<div class="mb-2">
-									<label class="form-label">
-										ID :
-									</label>
-									<label class="form-label" th:text="${arbitre.id}"></label>
-									<input type="hidden" name="id" class="form-control" th:value="${arbitre.id}">
-								</div>
+							<form th:action="@{/equipe/save}" method="post">
 								<div class="mb-2">
 									<label class="form-label">
 										Nom
 									</label>
-									<input type="text" name="nom" class="form-control" th:value="${arbitre.nom}">
+									<input type="text" name="nomEquipe" class="form-control">
 								</div>
 								<div class="mb-2">
 									<label class="form-label">
-										Nationalite
+										Pays
 									</label>
-									<input type="text" name="nationalite" class="form-control"
-										th:value="${arbitre.nationalite}">
+									<input type="text" name="pays" class="form-control">
 								</div>
-								<button class="btn btn-success">Update</button>
+								<div class="mb-2">
+									<label class="form-label">
+										Joueurs
+									</label>
+									<select name="joueurs" class="form-select" multiple>
+										<option th:each="joueur : ${joueurs}" th:value="${joueur.id}"
+											th:text="${joueur.nomJoueur}"></option>
+									</select>
+								</div>
+								<button class="btn btn-success">Save</button>
 							</form>
 						</div>
 					</div>

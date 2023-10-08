@@ -24,11 +24,30 @@
 								<th>ID</th>
 								<th>Nom Equipe</th>
 								<th>Pays</th>
+								<th></th>
+								<th></th>
+								<th>
+									<a class="btn btn-success" th:href="@{/formEquipe}">
+											<i class="bi bi-plus"></i>
+										
+									</a>
+								</th>
 							</tr>
 							<tr th:each="equipe:${equipes}">
 								<td th:text="${equipe.id}"></td>
 								<td th:text="${equipe.nomEquipe}"></td>
 								<td th:text="${equipe.pays}"></td>
+								<td>
+									<a class="btn btn-secondary" th:href="@{/equipe/edit(id=${equipe.id})}">
+										Edit
+									</a>
+								</td>
+								<td>
+									<a onclick="javascript: return confirm('Etes vous sûr(e)')"
+										th:href="@{/equipe/delete/{id}(id=${equipe.id})}" class="btn btn-danger">
+										<i class="bi bi-trash"></i>
+									</a>
+								</td>
 							</tr>
 						</thead>
 					</table>

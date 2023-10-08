@@ -27,21 +27,21 @@ public class ArbitreController {
 	}
 
 	@GetMapping("/formArbitre")
-	public String formPatient(Model model) {
-		model.addAttribute("patient", new Arbitre());
+	public String formArbitre(Model model) {
+		model.addAttribute("arbitre", new Arbitre());
 		return "formArbitre";
 	}
 
-	@PostMapping("/save")
-	public String save(Arbitre abArbitre, BindingResult bindingResult) {
+	@PostMapping("/arbitre/save")
+	public String save(Arbitre arbitre, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
 			return "formArbitre";
 		}
-		arbitreService.save(abArbitre);
+		arbitreService.save(arbitre);
 		return "redirect:/arbitres";
 	}
 
-	@GetMapping("/delete/{id}")
+	@GetMapping("/arbitre/delete/{id}")
 	public String deleteArbitre(@PathVariable Integer id) {
 
 		arbitreService.deleteById(id);

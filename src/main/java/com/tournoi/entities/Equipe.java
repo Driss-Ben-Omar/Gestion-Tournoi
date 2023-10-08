@@ -5,6 +5,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -30,11 +31,11 @@ public class Equipe {
 	
 	private String pays;
 	
-	@OneToMany(mappedBy = "equipe")
+	@OneToMany(mappedBy = "equipe",cascade = CascadeType.ALL)
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private List<Joueur> joueurs;
 	
-	@ManyToMany(mappedBy = "equipes")
+	@ManyToMany(mappedBy = "equipes",cascade = CascadeType.ALL)
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private List<Match> matchs;
 
