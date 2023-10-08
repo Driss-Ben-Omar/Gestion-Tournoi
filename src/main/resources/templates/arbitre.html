@@ -27,8 +27,9 @@
 								<th></th>
 								<th></th>
 								<th>
-									<a class="btn btn-success">
-										<i class="bi bi-plus"></i>
+									<a class="btn btn-success" th:href="@{/formArbitre}">
+											<i class="bi bi-plus"></i>
+										
 									</a>
 								</th>
 							</th>
@@ -37,7 +38,7 @@
 								<td th:text="${arbitre.nom}"></td>
 								<td th:text="${arbitre.nationalite}"></td>
 								<td>
-									<a class="btn btn-secondary">
+									<a class="btn btn-secondary" th:href="@{/arbitre/edit(id=${arbitre.id})}">
 										Edit
 									</a>
 								</td>

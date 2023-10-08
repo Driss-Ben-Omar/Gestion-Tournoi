@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="template1.html">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css">
+	<title>Arbitre</title>
+</head>
+
+<body>
+	<div layout:fragment="content">
+		<div class="row mt-5">
+			<div class="col-md-6 offset-3">
+				<div class="card">
+					<div class="card-header">Edit Arbitre</div>
+					<div class="card-body">
+						<div class="p-5">
+							<form th:action="@{/save}" method="post">
+								<div class="mb-2">
+									<label class="form-label">
+										ID :
+									</label>
+									<label class="form-label" th:text="${arbitre.id}"></label>
+									<input type="hidden" name="id" class="form-control" th:value="${arbitre.id}">
+								</div>
+								<div class="mb-2">
+									<label class="form-label">
+										Nom
+									</label>
+									<input type="text" name="nom" class="form-control" th:value="${arbitre.nom}">
+								</div>
+								<div class="mb-2">
+									<label class="form-label">
+										Nationalite
+									</label>
+									<input type="text" name="nationalite" class="form-control"
+										th:value="${arbitre.nationalite}">
+								</div>
+								<button class="btn btn-success">Update</button>
+							</form>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+
+</html>

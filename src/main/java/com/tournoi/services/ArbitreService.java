@@ -37,12 +37,6 @@ public class ArbitreService implements IArbitreService{
 	@Override
 	public Arbitre save(Arbitre arbitre) {	
 		Arbitre arb=arbitreRepository.save(arbitre);
-		List<Match> matchs=arb.getMatchs();
-		System.out.println(matchs.size());
-		for(Match match: matchs) {
-			matchService.update(match);
-			System.out.println(match.getHeureMatch());
-		}
 		return arb;
 	}
 
