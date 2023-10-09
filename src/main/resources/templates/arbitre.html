@@ -21,9 +21,12 @@
 					<table class="table">
 						<thead>
 							<tr>
+								<th></th>
+								<th></th>
 								<th>ID</th>
 								<th>Nationalite</th>
 								<th>Nom</th>
+								<th></th>
 								<th></th>
 								<th></th>
 								<th>
@@ -32,14 +35,16 @@
 										
 									</a>
 								</th>
-							</th>
+							</tr>
 							<tr th:each="arbitre:${arbitres}">
+								<td></td>
+								<td></td>
 								<td th:text="${arbitre.id}"></td>
 								<td th:text="${arbitre.nom}"></td>
 								<td th:text="${arbitre.nationalite}"></td>
 								<td>
 									<a class="btn btn-secondary" th:href="@{/arbitre/edit(id=${arbitre.id})}">
-										Edit
+										<i class="bi bi-pencil"></i>
 									</a>
 								</td>
 								<td>

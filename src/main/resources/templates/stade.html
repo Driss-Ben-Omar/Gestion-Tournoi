@@ -21,14 +21,35 @@
 					<table class="table">
 						<thead>
 							<tr>
+								<th></th>
 								<th>ID</th>
 								<th>Nom Stade</th>
 								<th>Ville</th>
+								<th></th>
+								<th></th>
+								<th>
+									<a class="btn btn-success" th:href="@{/formStade}">
+											<i class="bi bi-plus"></i>
+										
+									</a>
+								</th>
 							</tr>
 							<tr th:each="stade:${stades}">
+								<td></td>
 								<td th:text="${stade.id}"></td>
 								<td th:text="${stade.nomStade}"></td>
 								<td th:text="${stade.ville}"></td>
+								<td>
+									<a class="btn btn-secondary" th:href="@{/stade/edit(id=${stade.id})}">
+										Edit
+									</a>
+								</td>
+								<td>
+									<a onclick="javascript: return confirm('Etes vous sûr(e)')"
+										th:href="@{/stade/delete/{id}(id=${stade.id})}" class="btn btn-danger">
+										<i class="bi bi-trash"></i>
+									</a>
+								</td>
 							</tr>
 						</thead>
 					</table>
