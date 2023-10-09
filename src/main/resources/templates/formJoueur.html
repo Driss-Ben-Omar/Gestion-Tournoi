@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css">
-	<title>Nouveau Equipe</title>
+	<title>Nouveau Joueur</title>
 </head>
 
 <body>
@@ -13,28 +13,29 @@
 		<div class="row mt-5">
 			<div class="col-md-6 offset-3">
 				<div class="card">
-					<div class="card-header">Nouveau Equipe</div>
+					<div class="card-header">Nouveau Joueur</div>
 					<div class="card-body">
 						<div class="p-5">
-							<form th:action="@{/equipe/save}" method="post">
+							<form th:action="@{/joueur/save}" method="post">
 								<div class="mb-2">
 									<label class="form-label">
 										Nom
 									</label>
-									<input type="text" name="nomEquipe" class="form-control">
+									<input type="text" name="nomJoueur" class="form-control">
 								</div>
 								<div class="mb-2">
 									<label class="form-label">
-										Pays
+										Poste
 									</label>
-									<input type="text" name="pays" class="form-control">
+									<input type="text" name="poste" class="form-control">
 								</div>
 								<div class="mb-2">
 									<label class="form-label">
-										Joueurs
+										Equipes
 									</label>
-									<select name="joueurs" class="form-select" multiple>
-										<option th:each="joueur : ${joueurs}" th:value="${joueur.id}" th:text="${joueur.nomJoueur}"></option>
+									<select name="equipe" class="form-select">
+										<option th:each="equipe : ${equipes}" th:value="${equipe.id}"
+											th:text="${equipe.nomEquipe}"></option>
 									</select>
 								</div>
 								<button class="btn btn-success">Save</button>

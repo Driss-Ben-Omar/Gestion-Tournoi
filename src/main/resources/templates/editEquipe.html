@@ -28,14 +28,23 @@
 									<label class="form-label">
 										Nom
 									</label>
-									<input type="text" name="nomEquipe" class="form-control" th:value="${equipe.nomEquipe}">
+									<input type="text" name="nomEquipe" class="form-control"
+										th:value="${equipe.nomEquipe}">
 								</div>
 								<div class="mb-2">
 									<label class="form-label">
-										Nationalite
+										Pays
 									</label>
-									<input type="text" name="pays" class="form-control"
-										th:value="${equipe.pays}">
+									<input type="text" name="pays" class="form-control" th:value="${equipe.pays}">
+								</div>
+								<div class="mb-2">
+									<label class="form-label">
+										Joueurs
+									</label>
+									<select name="joueurs" class="form-select" multiple>
+										<option th:each="joueur : ${joueurs}" th:value="${joueur.id}"
+											th:text="${joueur.nomJoueur}"></option>
+									</select>
 								</div>
 								<button class="btn btn-success">Update</button>
 							</form>

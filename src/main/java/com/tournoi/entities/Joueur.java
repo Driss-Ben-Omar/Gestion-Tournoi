@@ -31,5 +31,12 @@ public class Joueur {
 	
 	@ManyToOne
 	private Equipe equipe;
+	
+	
+	@Override
+	public String toString() {
+	    return "Joueur [id=" + id + ", nomJoueur=" + nomJoueur + ", poste=" + poste + ", equipe=" + (equipe != null ? equipe.getId() : null) + "]";
+	}
+
 
 }

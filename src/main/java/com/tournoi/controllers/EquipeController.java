@@ -59,9 +59,12 @@ public class EquipeController {
 	
 	@GetMapping("/equipe/edit")
 	public String editEquipe(Model model,Integer id) {
-		Equipe equipe=equipeService.getById(id);
 		
+		Equipe equipe=equipeService.getById(id);
 		model.addAttribute("equipe", equipe);
+		
+		List<Joueur> joueurs=joueurService.getAll();
+		model.addAttribute("joueurs", joueurs);
 		
 		return "editEquipe";
 	}

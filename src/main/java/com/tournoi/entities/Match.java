@@ -46,5 +46,12 @@ public class Match {
 	@JsonProperty(access = Access.WRITE_ONLY)
 	@JoinTable(name = "match_equipe", joinColumns = @JoinColumn(name="match_id"), inverseJoinColumns = @JoinColumn(name="equipe_id"))
 	private List<Equipe> equipes;
+	
+	@Override
+	public String toString() {
+	    return "Match [id=" + id + ", date=" + dateMatch + ", stade=" + (stade != null ? stade.getId() : null) + "]";
+	}
+
+
 
 }
