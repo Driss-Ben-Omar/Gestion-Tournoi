@@ -23,18 +23,40 @@
 							<tr>
 								<th>ID</th>
 								<th>Stade</th>
+								<th>Arbitre</th>
 								<th>Equipes</th>
 								<th>date</th>
 								<th>heure</th>
+								<th></th>
+								<th></th>
+								<th>
+									<a class="btn btn-success" th:href="@{/formMatch}">
+										<i class="bi bi-plus"></i>
+
+									</a>
+								</th>
 							</tr>
 							<tr th:each="match:${matchs}">
 								<td th:text="${match.id}"></td>
-								<td th:text="${match.stade.nomStade}"></td>
-								<td th:text="${match.equipes[0].nomEquipe +' VS '+match.equipes[1].nomEquipe}"></td>
-								<td th:text="${#dates.format(match.dateMatch, 'yyyy-MM-dd')}">
+								<td th:text="${match?.stade?.nomStade}"></td>
+								<td th:text="${match?.arbitre?.nom}"></td>
+								<td
+									th:if="${match != null && match.equipes != null && not #lists.isEmpty(match.equipes)}">
+									<span th:text="${match.equipes[0].nomEquipe} + ' VS ' +${match.equipes[1].nomEquipe}"></span>
 								</td>
-
+								<td th:text="${#dates.format(match.dateMatch, 'yyyy-MM-dd')}"></td>
 								<td th:text="${match.heureMatch}"></td>
+								<td>
+									<a class="btn btn-secondary" th:href="@{/match/edit(id=${match.id})}">
+										Edit
+									</a>
+								</td>
+								<td>
+									<a onclick="javascript: return confirm('Etes vous sûr(e)')"
+										th:href="@{/match/delete/{id}(id=${match.id})}" class="btn btn-danger">
+										<i class="bi bi-trash"></i>
+									</a>
+								</td>
 							</tr>
 						</thead>
 					</table>
